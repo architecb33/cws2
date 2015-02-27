@@ -45,6 +45,14 @@
                  floorplanurl="%FIRSTXML%/floorplan/floorplan-voila_panogroup16.png"
                  titleid="panogroup16_title"
                  descriptionid=""/>
+  <panoramagroup name="panogroup362"
+                 mainscene="pano361"
+                 color="808080"
+                 alpha="1"
+                 thumburl="%FIRSTXML%/entrance_361/thumbnail.jpg"
+                 floorplanurl="%FIRSTXML%/floorplan/floorplan-voila-b_panogroup362.png"
+                 titleid="panogroup362_title"
+                 descriptionid=""/>
   <panoramagroup name="panogroup10"
                  mainscene="pano9"
                  color="808080"
@@ -52,6 +60,14 @@
                  thumburl="%FIRSTXML%/1_9/thumbnail.jpg"
                  floorplanurl="%FIRSTXML%/floorplan/floorplan-skyloft2_panogroup10.png"
                  titleid="panogroup10_title"
+                 descriptionid=""/>
+  <panoramagroup name="panogroup430"
+                 mainscene="pano431"
+                 color="808080"
+                 alpha="1"
+                 thumburl="%FIRSTXML%/living_room_431/thumbnail.jpg"
+                 floorplanurl="%FIRSTXML%/floorplan/floorplan-skyloft2_b_panogroup430.png"
+                 titleid="panogroup430_title"
                  descriptionid=""/>
 
   
@@ -72,7 +88,7 @@
 
     <autorotate horizon="0.000000" tofov="0.571000" waittime="50" speed="0"/>
 
-    <panoview h="-0.005813" v="0.000000" fov="0.571000" hmin="-0.5" hmax="0.5" vmin="-0.2855" vmax="0.2855" fovmax="0.571333333333333" />
+    <panoview h="-0.005813" v="0.000000" fov="0.571000" hmin="-0.5" hmax="0.5" vmin="-0.2855" vmax="0.2855" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-0.5"
@@ -81,7 +97,7 @@
           vlookatmax="0.2855"
           maxpixelzoom=""
           fovmin="0.39375"
-          fovmax="0.571333333333333"
+          fovmax="90"
           fov="0.571000"
           hlookat="-0.005813"
           vlookat="0.000000"/>
@@ -95,11 +111,12 @@
 
 
   <hotspot name="spotpoint65"
-           ath="-0.055947" atv="0.028198"
+           ath="-0.080332" atv="0.027719"
            visible="true"
            style="Iconripples"
            descriptionid=""
            onclick="onclickspotpoint65"
+           tooltip="spotpoint65_tooltip"
            />
   <hotspot name="spotpoint65" devices="flash" zorder="3"/>
   <hotspot name="spotpoint65" devices="html5+desktop" zorder="3" zorder2="1"/>
@@ -110,11 +127,12 @@
     
   </action>
   <hotspot name="spotpoint150"
-           ath="0.051020" atv="0.028198"
+           ath="0.037382" atv="0.027767"
            visible="true"
            style="Iconripples"
            descriptionid=""
            onclick="onclickspotpoint150"
+           tooltip="spotpoint150_tooltip"
            />
   <hotspot name="spotpoint150" devices="flash" zorder="3"/>
   <hotspot name="spotpoint150" devices="html5+desktop" zorder="3" zorder2="1"/>
@@ -124,13 +142,49 @@
       lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
     
   </action>
+  <hotspot name="spotpoint368"
+           ath="-0.027655" atv="0.027622"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint368"
+           tooltip="spotpoint368_tooltip"
+           />
+  <hotspot name="spotpoint368" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint368" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint368" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint368">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(get(panoramagroup[panogroup362].mainscene));
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint435"
+           ath="0.080345" atv="0.027596"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint435"
+           tooltip="spotpoint435_tooltip"
+           />
+  <hotspot name="spotpoint435" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint435" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint435" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint435">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(get(panoramagroup[panogroup430].mainscene));
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
   <action name="hidepanopointspots">
     set(hotspot[spotpoint65].visible, false);
     set(hotspot[spotpoint150].visible, false);
+    set(hotspot[spotpoint368].visible, false);
+    set(hotspot[spotpoint435].visible, false);
   </action>
   <action name="showpanopointspots">
     set(hotspot[spotpoint65].visible, true);
     set(hotspot[spotpoint150].visible, true);
+    set(hotspot[spotpoint368].visible, true);
+    set(hotspot[spotpoint435].visible, true);
   </action>
 
 
@@ -151,6 +205,10 @@
         tween(hotspot[spotpoint65].zorder2, %1, 0.5, default, copy(urlbckpspotpoint65, hotspot[spotpoint65].url); set(hotspot[spotpoint65].url, ""); copy(hotspot[spotpoint65].url, urlbckpspotpoint65););
 
         tween(hotspot[spotpoint150].zorder2, %1, 0.5, default, copy(urlbckpspotpoint150, hotspot[spotpoint150].url); set(hotspot[spotpoint150].url, ""); copy(hotspot[spotpoint150].url, urlbckpspotpoint150););
+
+        tween(hotspot[spotpoint368].zorder2, %1, 0.5, default, copy(urlbckpspotpoint368, hotspot[spotpoint368].url); set(hotspot[spotpoint368].url, ""); copy(hotspot[spotpoint368].url, urlbckpspotpoint368););
+
+        tween(hotspot[spotpoint435].zorder2, %1, 0.5, default, copy(urlbckpspotpoint435, hotspot[spotpoint435].url); set(hotspot[spotpoint435].url, ""); copy(hotspot[spotpoint435].url, urlbckpspotpoint435););
 
       );
     );
@@ -173,9 +231,9 @@
        planar="false"
        full360="true">
 
-    <autorotate horizon="0.000000" tofov="90.000000" waittime="1" speed="3"/>
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
 
-    <panoview h="46.000000" v="0.000000" fov="90.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <panoview h="46.000000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-180"
@@ -184,7 +242,7 @@
           vlookatmax="90"
           maxpixelzoom="1.0"
           fovmax="90"
-          fov="90.000000"
+          fov="70.000000"
           hlookat="46.000000"
           vlookat="0.000000"/>
 
@@ -213,7 +271,7 @@
 
 
   <hotspot name="spotpoint254"
-           ath="74.456277" atv="10.104482"
+           ath="75.709083" atv="10.485356"
            visible="true"
            style="Iconripples"
            descriptionid=""
@@ -229,7 +287,7 @@
     
   </action>
   <hotspot name="spotpoint312"
-           ath="112.412152" atv="-28.903318"
+           ath="114.109197" atv="-30.145680"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint312_description"
@@ -288,9 +346,9 @@
        planar="false"
        full360="true">
 
-    <autorotate horizon="0.000000" tofov="80.000000" waittime="1" speed="3"/>
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
 
-    <panoview h="140.000000" v="0.000000" fov="80.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <panoview h="140.000000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-180"
@@ -299,7 +357,7 @@
           vlookatmax="90"
           maxpixelzoom="1.0"
           fovmax="90"
-          fov="80.000000"
+          fov="70.000000"
           hlookat="140.000000"
           vlookat="0.000000"/>
 
@@ -360,7 +418,7 @@
     
   </action>
   <hotspot name="spotpoint287"
-           ath="170.844119" atv="-6.673862"
+           ath="171.272886" atv="-6.990298"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint287_description"
@@ -373,7 +431,7 @@
   <action name="onclickspotpoint287">openSpotDescription-description(get(descriptionid));
   </action>
   <hotspot name="spotpoint310"
-           ath="143.228159" atv="-9.664198"
+           ath="143.345511" atv="-10.048499"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint310_description"
@@ -440,9 +498,9 @@
        planar="false"
        full360="true">
 
-    <autorotate horizon="0.000000" tofov="80.000000" waittime="1" speed="3"/>
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
 
-    <panoview h="64.000000" v="0.000000" fov="80.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <panoview h="64.000000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-180"
@@ -451,7 +509,7 @@
           vlookatmax="90"
           maxpixelzoom="1.0"
           fovmax="90"
-          fov="80.000000"
+          fov="70.000000"
           hlookat="64.000000"
           vlookat="0.000000"/>
 
@@ -525,7 +583,7 @@
   <action name="onclickspotpoint313">openSpotDescription-description(get(descriptionid));
   </action>
   <hotspot name="spotpoint314"
-           ath="26.783638" atv="-21.003842"
+           ath="26.943476" atv="-20.629798"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint314_description"
@@ -538,7 +596,7 @@
   <action name="onclickspotpoint314">openSpotDescription-description(get(descriptionid));
   </action>
   <hotspot name="spotpoint315"
-           ath="-136.725119" atv="-23.820119"
+           ath="-136.711799" atv="-24.103258"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint315_description"
@@ -564,7 +622,7 @@
   <action name="onclickspotpoint316">openSpotDescription-description(get(descriptionid));
   </action>
   <hotspot name="spotpoint317"
-           ath="133.963916" atv="-26.046540"
+           ath="133.178051" atv="-24.987781"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint317_description"
@@ -643,9 +701,9 @@
        planar="false"
        full360="true">
 
-    <autorotate horizon="0.000000" tofov="80.000000" waittime="1" speed="3"/>
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
 
-    <panoview h="-116.000000" v="0.000000" fov="80.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <panoview h="-116.000000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-180"
@@ -654,7 +712,7 @@
           vlookatmax="90"
           maxpixelzoom="1.0"
           fovmax="90"
-          fov="80.000000"
+          fov="70.000000"
           hlookat="-116.000000"
           vlookat="0.000000"/>
 
@@ -699,7 +757,7 @@
     
   </action>
   <hotspot name="spotpoint318"
-           ath="-36.142198" atv="-22.275183"
+           ath="-36.146157" atv="-22.428541"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint318_description"
@@ -747,6 +805,576 @@
   
 
 
+<scene name="pano361"
+       heading="-2.55795384873636e-13"
+       group="panogroup362"
+       thumburl="%FIRSTXML%/entrance_361/thumbnail.jpg"
+       backgroundsound=""
+       backgroundsoundloops="0"
+       titleid="pano361_title"
+       descriptionid="pano361_description"
+       multires="false"
+       planar="false"
+       full360="true">
+
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
+
+    <panoview h="-54.900000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <view fisheye="0"
+          limitview="range"
+          hlookatmin="-180"
+          hlookatmax="180"
+          vlookatmin="-90"
+          vlookatmax="90"
+          maxpixelzoom="1.0"
+          fovmax="90"
+          fov="70.000000"
+          hlookat="-54.900000"
+          vlookat="0.000000"/>
+
+    <preview url="%FIRSTXML%/entrance_361/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
+
+    <image type="CUBE" devices="desktop">
+      <front url="entrance_361/html5/0.jpg"/>
+      <right url="entrance_361/html5/1.jpg"/>
+      <back  url="entrance_361/html5/2.jpg"/>
+      <left  url="entrance_361/html5/3.jpg"/>
+      <up    url="entrance_361/html5/4.jpg"/>
+      <down  url="entrance_361/html5/5.jpg"/>
+    </image>
+
+    <image type="CUBE" devices="html5">
+      <front url="entrance_361/html5/0.jpg"/>
+      <right url="entrance_361/html5/1.jpg"/>
+      <back  url="entrance_361/html5/2.jpg"/>
+      <left  url="entrance_361/html5/3.jpg"/>
+      <up    url="entrance_361/html5/4.jpg"/>
+      <down  url="entrance_361/html5/5.jpg"/>
+    </image>
+
+
+
+
+
+  <hotspot name="spotpoint436"
+           ath="-89.236439" atv="4.368964"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint436"
+           tooltip="spotpoint436_tooltip"
+           />
+  <hotspot name="spotpoint436" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint436" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint436" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint436">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano363);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint437"
+           ath="-57.381839" atv="-43.252380"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint437_description"
+           onclick="onclickspotpoint437"
+           tooltip="spotpoint437_tooltip"
+           />
+  <hotspot name="spotpoint437" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint437" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint437" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint437">openSpotDescription-description(get(descriptionid));
+  </action>
+  <action name="hidepanopointspots">
+    set(hotspot[spotpoint436].visible, false);
+    set(hotspot[spotpoint437].visible, false);
+  </action>
+  <action name="showpanopointspots">
+    set(hotspot[spotpoint436].visible, true);
+    set(hotspot[spotpoint437].visible, true);
+  </action>
+
+
+  <action name="showpanospotsaction">
+    if (tour_displayspots,
+    showpanopointspots();
+    );
+  </action>
+  <action name="hidepanospotsaction">
+    hidepanopointspots();
+  </action>
+
+  <action name="setzorder2onstandardspots">
+    if (device.html5,
+      ifnot (device.desktop,
+
+
+        tween(hotspot[spotpoint436].zorder2, %1, 0.5, default, copy(urlbckpspotpoint436, hotspot[spotpoint436].url); set(hotspot[spotpoint436].url, ""); copy(hotspot[spotpoint436].url, urlbckpspotpoint436););
+
+        tween(hotspot[spotpoint437].zorder2, %1);
+
+      );
+    );
+  </action>  
+
+</scene>
+
+
+<scene name="pano363"
+       heading="0"
+       group="panogroup362"
+       thumburl="%FIRSTXML%/living_room_363/thumbnail.jpg"
+       backgroundsound=""
+       backgroundsoundloops="0"
+       titleid="pano363_title"
+       descriptionid="pano363_description"
+       multires="false"
+       planar="false"
+       full360="true">
+
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
+
+    <panoview h="48.150000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <view fisheye="0"
+          limitview="range"
+          hlookatmin="-180"
+          hlookatmax="180"
+          vlookatmin="-90"
+          vlookatmax="90"
+          maxpixelzoom="1.0"
+          fovmax="90"
+          fov="70.000000"
+          hlookat="48.150000"
+          vlookat="0.000000"/>
+
+    <preview url="%FIRSTXML%/living_room_363/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
+
+    <image type="CUBE" devices="desktop">
+      <front url="living_room_363/html5/0.jpg"/>
+      <right url="living_room_363/html5/1.jpg"/>
+      <back  url="living_room_363/html5/2.jpg"/>
+      <left  url="living_room_363/html5/3.jpg"/>
+      <up    url="living_room_363/html5/4.jpg"/>
+      <down  url="living_room_363/html5/5.jpg"/>
+    </image>
+
+    <image type="CUBE" devices="html5">
+      <front url="living_room_363/html5/0.jpg"/>
+      <right url="living_room_363/html5/1.jpg"/>
+      <back  url="living_room_363/html5/2.jpg"/>
+      <left  url="living_room_363/html5/3.jpg"/>
+      <up    url="living_room_363/html5/4.jpg"/>
+      <down  url="living_room_363/html5/5.jpg"/>
+    </image>
+
+
+
+
+
+  <hotspot name="spotpoint438"
+           ath="85.309203" atv="2.184477"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint438"
+           tooltip="spotpoint438_tooltip"
+           />
+  <hotspot name="spotpoint438" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint438" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint438" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint438">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano361);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint439"
+           ath="95.084631" atv="-21.136322"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint439_description"
+           onclick="onclickspotpoint439"
+           tooltip="spotpoint439_tooltip"
+           />
+  <hotspot name="spotpoint439" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint439" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint439" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint439">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint440"
+           ath="63.555844" atv="-20.534037"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint440_description"
+           onclick="onclickspotpoint440"
+           tooltip="spotpoint440_tooltip"
+           />
+  <hotspot name="spotpoint440" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint440" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint440" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint440">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint494"
+           ath="-8.508965" atv="3.932097"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint494"
+           tooltip="spotpoint494_tooltip"
+           />
+  <hotspot name="spotpoint494" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint494" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint494" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint494">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano365);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint495"
+           ath="-7.967877" atv="-13.545542"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint495_description"
+           onclick="onclickspotpoint495"
+           tooltip="spotpoint495_tooltip"
+           />
+  <hotspot name="spotpoint495" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint495" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint495" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint495">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint496"
+           ath="1.162791" atv="2.727356"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint496"
+           tooltip="spotpoint496_tooltip"
+           />
+  <hotspot name="spotpoint496" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint496" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint496" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint496">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano367);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint497"
+           ath="7.059960" atv="-12.275280"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint497_description"
+           onclick="onclickspotpoint497"
+           tooltip="spotpoint497_tooltip"
+           />
+  <hotspot name="spotpoint497" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint497" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint497" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint497">openSpotDescription-description(get(descriptionid));
+  </action>
+  <action name="hidepanopointspots">
+    set(hotspot[spotpoint438].visible, false);
+    set(hotspot[spotpoint439].visible, false);
+    set(hotspot[spotpoint440].visible, false);
+    set(hotspot[spotpoint494].visible, false);
+    set(hotspot[spotpoint495].visible, false);
+    set(hotspot[spotpoint496].visible, false);
+    set(hotspot[spotpoint497].visible, false);
+  </action>
+  <action name="showpanopointspots">
+    set(hotspot[spotpoint438].visible, true);
+    set(hotspot[spotpoint439].visible, true);
+    set(hotspot[spotpoint440].visible, true);
+    set(hotspot[spotpoint494].visible, true);
+    set(hotspot[spotpoint495].visible, true);
+    set(hotspot[spotpoint496].visible, true);
+    set(hotspot[spotpoint497].visible, true);
+  </action>
+
+
+  <action name="showpanospotsaction">
+    if (tour_displayspots,
+    showpanopointspots();
+    );
+  </action>
+  <action name="hidepanospotsaction">
+    hidepanopointspots();
+  </action>
+
+  <action name="setzorder2onstandardspots">
+    if (device.html5,
+      ifnot (device.desktop,
+
+
+        tween(hotspot[spotpoint438].zorder2, %1, 0.5, default, copy(urlbckpspotpoint438, hotspot[spotpoint438].url); set(hotspot[spotpoint438].url, ""); copy(hotspot[spotpoint438].url, urlbckpspotpoint438););
+
+        tween(hotspot[spotpoint439].zorder2, %1);
+
+        tween(hotspot[spotpoint440].zorder2, %1);
+
+        tween(hotspot[spotpoint494].zorder2, %1, 0.5, default, copy(urlbckpspotpoint494, hotspot[spotpoint494].url); set(hotspot[spotpoint494].url, ""); copy(hotspot[spotpoint494].url, urlbckpspotpoint494););
+
+        tween(hotspot[spotpoint495].zorder2, %1);
+
+        tween(hotspot[spotpoint496].zorder2, %1, 0.5, default, copy(urlbckpspotpoint496, hotspot[spotpoint496].url); set(hotspot[spotpoint496].url, ""); copy(hotspot[spotpoint496].url, urlbckpspotpoint496););
+
+        tween(hotspot[spotpoint497].zorder2, %1);
+
+      );
+    );
+  </action>  
+
+</scene>
+
+
+<scene name="pano365"
+       heading="49.4"
+       group="panogroup362"
+       thumburl="%FIRSTXML%/bedroom_365/thumbnail.jpg"
+       backgroundsound=""
+       backgroundsoundloops="0"
+       titleid="pano365_title"
+       descriptionid="pano365_description"
+       multires="false"
+       planar="false"
+       full360="true">
+
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
+
+    <panoview h="70.200000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <view fisheye="0"
+          limitview="range"
+          hlookatmin="-180"
+          hlookatmax="180"
+          vlookatmin="-90"
+          vlookatmax="90"
+          maxpixelzoom="1.0"
+          fovmax="90"
+          fov="70.000000"
+          hlookat="70.200000"
+          vlookat="0.000000"/>
+
+    <preview url="%FIRSTXML%/bedroom_365/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
+
+    <image type="CUBE" devices="desktop">
+      <front url="bedroom_365/html5/0.jpg"/>
+      <right url="bedroom_365/html5/1.jpg"/>
+      <back  url="bedroom_365/html5/2.jpg"/>
+      <left  url="bedroom_365/html5/3.jpg"/>
+      <up    url="bedroom_365/html5/4.jpg"/>
+      <down  url="bedroom_365/html5/5.jpg"/>
+    </image>
+
+    <image type="CUBE" devices="html5">
+      <front url="bedroom_365/html5/0.jpg"/>
+      <right url="bedroom_365/html5/1.jpg"/>
+      <back  url="bedroom_365/html5/2.jpg"/>
+      <left  url="bedroom_365/html5/3.jpg"/>
+      <up    url="bedroom_365/html5/4.jpg"/>
+      <down  url="bedroom_365/html5/5.jpg"/>
+    </image>
+
+
+
+
+
+  <hotspot name="spotpoint498"
+           ath="47.510633" atv="-14.938740"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint498_description"
+           onclick="onclickspotpoint498"
+           tooltip="spotpoint498_tooltip"
+           />
+  <hotspot name="spotpoint498" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint498" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint498" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint498">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint499"
+           ath="54.754550" atv="6.498177"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint499"
+           tooltip="spotpoint499_tooltip"
+           />
+  <hotspot name="spotpoint499" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint499" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint499" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint499">zoomto(get(panoview.fov),smooth(400,20,100));
+        mainloadscene(pano363);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <action name="hidepanopointspots">
+    set(hotspot[spotpoint498].visible, false);
+    set(hotspot[spotpoint499].visible, false);
+  </action>
+  <action name="showpanopointspots">
+    set(hotspot[spotpoint498].visible, true);
+    set(hotspot[spotpoint499].visible, true);
+  </action>
+
+
+  <action name="showpanospotsaction">
+    if (tour_displayspots,
+    showpanopointspots();
+    );
+  </action>
+  <action name="hidepanospotsaction">
+    hidepanopointspots();
+  </action>
+
+  <action name="setzorder2onstandardspots">
+    if (device.html5,
+      ifnot (device.desktop,
+
+
+        tween(hotspot[spotpoint498].zorder2, %1);
+
+        tween(hotspot[spotpoint499].zorder2, %1, 0.5, default, copy(urlbckpspotpoint499, hotspot[spotpoint499].url); set(hotspot[spotpoint499].url, ""); copy(hotspot[spotpoint499].url, urlbckpspotpoint499););
+
+      );
+    );
+  </action>  
+
+</scene>
+
+
+<scene name="pano367"
+       heading="0"
+       group="panogroup362"
+       thumburl="%FIRSTXML%/master_bedroom_367/thumbnail.jpg"
+       backgroundsound=""
+       backgroundsoundloops="0"
+       titleid="pano367_title"
+       descriptionid="pano367_description"
+       multires="false"
+       planar="false"
+       full360="true">
+
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
+
+    <panoview h="-179.550000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <view fisheye="0"
+          limitview="range"
+          hlookatmin="-180"
+          hlookatmax="180"
+          vlookatmin="-90"
+          vlookatmax="90"
+          maxpixelzoom="1.0"
+          fovmax="90"
+          fov="70.000000"
+          hlookat="-179.550000"
+          vlookat="0.000000"/>
+
+    <preview url="%FIRSTXML%/master_bedroom_367/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
+
+    <image type="CUBE" devices="desktop">
+      <front url="master_bedroom_367/html5/0.jpg"/>
+      <right url="master_bedroom_367/html5/1.jpg"/>
+      <back  url="master_bedroom_367/html5/2.jpg"/>
+      <left  url="master_bedroom_367/html5/3.jpg"/>
+      <up    url="master_bedroom_367/html5/4.jpg"/>
+      <down  url="master_bedroom_367/html5/5.jpg"/>
+    </image>
+
+    <image type="CUBE" devices="html5">
+      <front url="master_bedroom_367/html5/0.jpg"/>
+      <right url="master_bedroom_367/html5/1.jpg"/>
+      <back  url="master_bedroom_367/html5/2.jpg"/>
+      <left  url="master_bedroom_367/html5/3.jpg"/>
+      <up    url="master_bedroom_367/html5/4.jpg"/>
+      <down  url="master_bedroom_367/html5/5.jpg"/>
+    </image>
+
+
+
+
+
+  <hotspot name="spotpoint500"
+           ath="115.593123" atv="-21.818161"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint500_description"
+           onclick="onclickspotpoint500"
+           tooltip="spotpoint500_tooltip"
+           />
+  <hotspot name="spotpoint500" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint500" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint500" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint500">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint501"
+           ath="173.018167" atv="0.873724"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint501"
+           tooltip="spotpoint501_tooltip"
+           />
+  <hotspot name="spotpoint501" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint501" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint501" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint501">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano363);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint502"
+           ath="-178.104089" atv="-24.187501"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint502_description"
+           onclick="onclickspotpoint502"
+           tooltip="spotpoint502_tooltip"
+           />
+  <hotspot name="spotpoint502" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint502" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint502" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint502">openSpotDescription-description(get(descriptionid));
+  </action>
+  <action name="hidepanopointspots">
+    set(hotspot[spotpoint500].visible, false);
+    set(hotspot[spotpoint501].visible, false);
+    set(hotspot[spotpoint502].visible, false);
+  </action>
+  <action name="showpanopointspots">
+    set(hotspot[spotpoint500].visible, true);
+    set(hotspot[spotpoint501].visible, true);
+    set(hotspot[spotpoint502].visible, true);
+  </action>
+
+
+  <action name="showpanospotsaction">
+    if (tour_displayspots,
+    showpanopointspots();
+    );
+  </action>
+  <action name="hidepanospotsaction">
+    hidepanopointspots();
+  </action>
+
+  <action name="setzorder2onstandardspots">
+    if (device.html5,
+      ifnot (device.desktop,
+
+
+        tween(hotspot[spotpoint500].zorder2, %1);
+
+        tween(hotspot[spotpoint501].zorder2, %1, 0.5, default, copy(urlbckpspotpoint501, hotspot[spotpoint501].url); set(hotspot[spotpoint501].url, ""); copy(hotspot[spotpoint501].url, urlbckpspotpoint501););
+
+        tween(hotspot[spotpoint502].zorder2, %1);
+
+      );
+    );
+  </action>  
+
+</scene>
+  
+  
+
+
 <scene name="pano9"
        heading="-179.6"
        group="panogroup10"
@@ -759,9 +1387,9 @@
        planar="false"
        full360="true">
 
-    <autorotate horizon="0.000000" tofov="80.000000" waittime="1" speed="3"/>
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
 
-    <panoview h="6.000000" v="0.000000" fov="80.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <panoview h="165.600000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-180"
@@ -770,8 +1398,8 @@
           vlookatmax="90"
           maxpixelzoom="1.0"
           fovmax="90"
-          fov="80.000000"
-          hlookat="6.000000"
+          fov="70.000000"
+          hlookat="165.600000"
           vlookat="0.000000"/>
 
     <preview url="%FIRSTXML%/1_9/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
@@ -815,7 +1443,7 @@
     
   </action>
   <hotspot name="spotpoint346"
-           ath="-125.562599" atv="-18.394198"
+           ath="-125.217361" atv="-18.165781"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint346_description"
@@ -828,7 +1456,7 @@
   <action name="onclickspotpoint346">openSpotDescription-description(get(descriptionid));
   </action>
   <hotspot name="spotpoint347"
-           ath="-107.585281" atv="-6.111183"
+           ath="-107.499241" atv="-6.605101"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint347_description"
@@ -908,9 +1536,9 @@
        planar="false"
        full360="true">
 
-    <autorotate horizon="0.000000" tofov="80.000000" waittime="1" speed="3"/>
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
 
-    <panoview h="56.000000" v="0.000000" fov="80.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <panoview h="56.000000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-180"
@@ -919,7 +1547,7 @@
           vlookatmax="90"
           maxpixelzoom="1.0"
           fovmax="90"
-          fov="80.000000"
+          fov="70.000000"
           hlookat="56.000000"
           vlookat="0.000000"/>
 
@@ -980,7 +1608,7 @@
     
   </action>
   <hotspot name="spotpoint349"
-           ath="68.389206" atv="-24.745502"
+           ath="68.727250" atv="-24.903002"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint349_description"
@@ -993,7 +1621,7 @@
   <action name="onclickspotpoint349">openSpotDescription-description(get(descriptionid));
   </action>
   <hotspot name="spotpoint350"
-           ath="147.720237" atv="-47.841119"
+           ath="147.709079" atv="-48.058201"
            visible="true"
            style="Iconinfosign"
            descriptionid="spotpoint350_description"
@@ -1060,9 +1688,9 @@
        planar="false"
        full360="true">
 
-    <autorotate horizon="0.000000" tofov="80.000000" waittime="1" speed="3"/>
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
 
-    <panoview h="-44.820000" v="0.000000" fov="80.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <panoview h="-44.820000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
     <view fisheye="0"
           limitview="range"
           hlookatmin="-180"
@@ -1071,7 +1699,7 @@
           vlookatmax="90"
           maxpixelzoom="1.0"
           fovmax="90"
-          fov="80.000000"
+          fov="70.000000"
           hlookat="-44.820000"
           vlookat="0.000000"/>
 
@@ -1153,6 +1781,424 @@
         tween(hotspot[spotpoint261].zorder2, %1, 0.5, default, copy(urlbckpspotpoint261, hotspot[spotpoint261].url); set(hotspot[spotpoint261].url, ""); copy(hotspot[spotpoint261].url, urlbckpspotpoint261););
 
         tween(hotspot[spotpoint351].zorder2, %1);
+
+      );
+    );
+  </action>  
+
+</scene>
+  
+  
+
+
+<scene name="pano431"
+       heading="-113.8"
+       group="panogroup430"
+       thumburl="%FIRSTXML%/living_room_431/thumbnail.jpg"
+       backgroundsound=""
+       backgroundsoundloops="0"
+       titleid="pano431_title"
+       descriptionid="pano431_description"
+       multires="false"
+       planar="false"
+       full360="true">
+
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
+
+    <panoview h="83.250000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <view fisheye="0"
+          limitview="range"
+          hlookatmin="-180"
+          hlookatmax="180"
+          vlookatmin="-90"
+          vlookatmax="90"
+          maxpixelzoom="1.0"
+          fovmax="90"
+          fov="70.000000"
+          hlookat="83.250000"
+          vlookat="0.000000"/>
+
+    <preview url="%FIRSTXML%/living_room_431/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
+
+    <image type="CUBE" devices="desktop">
+      <front url="living_room_431/html5/0.jpg"/>
+      <right url="living_room_431/html5/1.jpg"/>
+      <back  url="living_room_431/html5/2.jpg"/>
+      <left  url="living_room_431/html5/3.jpg"/>
+      <up    url="living_room_431/html5/4.jpg"/>
+      <down  url="living_room_431/html5/5.jpg"/>
+    </image>
+
+    <image type="CUBE" devices="html5">
+      <front url="living_room_431/html5/0.jpg"/>
+      <right url="living_room_431/html5/1.jpg"/>
+      <back  url="living_room_431/html5/2.jpg"/>
+      <left  url="living_room_431/html5/3.jpg"/>
+      <up    url="living_room_431/html5/4.jpg"/>
+      <down  url="living_room_431/html5/5.jpg"/>
+    </image>
+
+
+
+
+
+  <hotspot name="spotpoint507"
+           ath="39.490914" atv="-21.407762"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint507"
+           tooltip="spotpoint507_tooltip"
+           />
+  <hotspot name="spotpoint507" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint507" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint507" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint507">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano433);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint508"
+           ath="42.953045" atv="-33.948720"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint508_description"
+           onclick="onclickspotpoint508"
+           tooltip="spotpoint508_tooltip"
+           />
+  <hotspot name="spotpoint508" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint508" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint508" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint508">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint509"
+           ath="66.339719" atv="4.760642"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint509"
+           tooltip="spotpoint509_tooltip"
+           />
+  <hotspot name="spotpoint509" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint509" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint509" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint509">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano429);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint510"
+           ath="90.545390" atv="-23.155382"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint510_description"
+           onclick="onclickspotpoint510"
+           tooltip="spotpoint510_tooltip"
+           />
+  <hotspot name="spotpoint510" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint510" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint510" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint510">openSpotDescription-description(get(descriptionid));
+  </action>
+  <action name="hidepanopointspots">
+    set(hotspot[spotpoint507].visible, false);
+    set(hotspot[spotpoint508].visible, false);
+    set(hotspot[spotpoint509].visible, false);
+    set(hotspot[spotpoint510].visible, false);
+  </action>
+  <action name="showpanopointspots">
+    set(hotspot[spotpoint507].visible, true);
+    set(hotspot[spotpoint508].visible, true);
+    set(hotspot[spotpoint509].visible, true);
+    set(hotspot[spotpoint510].visible, true);
+  </action>
+
+
+  <action name="showpanospotsaction">
+    if (tour_displayspots,
+    showpanopointspots();
+    );
+  </action>
+  <action name="hidepanospotsaction">
+    hidepanopointspots();
+  </action>
+
+  <action name="setzorder2onstandardspots">
+    if (device.html5,
+      ifnot (device.desktop,
+
+
+        tween(hotspot[spotpoint507].zorder2, %1, 0.5, default, copy(urlbckpspotpoint507, hotspot[spotpoint507].url); set(hotspot[spotpoint507].url, ""); copy(hotspot[spotpoint507].url, urlbckpspotpoint507););
+
+        tween(hotspot[spotpoint508].zorder2, %1);
+
+        tween(hotspot[spotpoint509].zorder2, %1, 0.5, default, copy(urlbckpspotpoint509, hotspot[spotpoint509].url); set(hotspot[spotpoint509].url, ""); copy(hotspot[spotpoint509].url, urlbckpspotpoint509););
+
+        tween(hotspot[spotpoint510].zorder2, %1);
+
+      );
+    );
+  </action>  
+
+</scene>
+
+
+<scene name="pano429"
+       heading="-179"
+       group="panogroup430"
+       thumburl="%FIRSTXML%/working_area_429/thumbnail.jpg"
+       backgroundsound=""
+       backgroundsoundloops="0"
+       titleid="pano429_title"
+       descriptionid="pano429_description"
+       multires="false"
+       planar="false"
+       full360="true">
+
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
+
+    <panoview h="-39.150000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <view fisheye="0"
+          limitview="range"
+          hlookatmin="-180"
+          hlookatmax="180"
+          vlookatmin="-90"
+          vlookatmax="90"
+          maxpixelzoom="1.0"
+          fovmax="90"
+          fov="70.000000"
+          hlookat="-39.150000"
+          vlookat="0.000000"/>
+
+    <preview url="%FIRSTXML%/working_area_429/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
+
+    <image type="CUBE" devices="desktop">
+      <front url="working_area_429/html5/0.jpg"/>
+      <right url="working_area_429/html5/1.jpg"/>
+      <back  url="working_area_429/html5/2.jpg"/>
+      <left  url="working_area_429/html5/3.jpg"/>
+      <up    url="working_area_429/html5/4.jpg"/>
+      <down  url="working_area_429/html5/5.jpg"/>
+    </image>
+
+    <image type="CUBE" devices="html5">
+      <front url="working_area_429/html5/0.jpg"/>
+      <right url="working_area_429/html5/1.jpg"/>
+      <back  url="working_area_429/html5/2.jpg"/>
+      <left  url="working_area_429/html5/3.jpg"/>
+      <up    url="working_area_429/html5/4.jpg"/>
+      <down  url="working_area_429/html5/5.jpg"/>
+    </image>
+
+
+
+
+
+  <hotspot name="spotpoint503"
+           ath="-159.267924" atv="-23.712122"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint503_description"
+           onclick="onclickspotpoint503"
+           tooltip="spotpoint503_tooltip"
+           />
+  <hotspot name="spotpoint503" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint503" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint503" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint503">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint504"
+           ath="142.867799" atv="-25.617059"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint504_description"
+           onclick="onclickspotpoint504"
+           tooltip="spotpoint504_tooltip"
+           />
+  <hotspot name="spotpoint504" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint504" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint504" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint504">openSpotDescription-description(get(descriptionid));
+  </action>
+  <hotspot name="spotpoint505"
+           ath="-35.558281" atv="0.663300"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint505"
+           tooltip="spotpoint505_tooltip"
+           />
+  <hotspot name="spotpoint505" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint505" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint505" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint505">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano431);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint506"
+           ath="-23.631839" atv="-32.063942"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint506_description"
+           onclick="onclickspotpoint506"
+           tooltip="spotpoint506_tooltip"
+           />
+  <hotspot name="spotpoint506" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint506" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint506" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint506">openSpotDescription-description(get(descriptionid));
+  </action>
+  <action name="hidepanopointspots">
+    set(hotspot[spotpoint503].visible, false);
+    set(hotspot[spotpoint504].visible, false);
+    set(hotspot[spotpoint505].visible, false);
+    set(hotspot[spotpoint506].visible, false);
+  </action>
+  <action name="showpanopointspots">
+    set(hotspot[spotpoint503].visible, true);
+    set(hotspot[spotpoint504].visible, true);
+    set(hotspot[spotpoint505].visible, true);
+    set(hotspot[spotpoint506].visible, true);
+  </action>
+
+
+  <action name="showpanospotsaction">
+    if (tour_displayspots,
+    showpanopointspots();
+    );
+  </action>
+  <action name="hidepanospotsaction">
+    hidepanopointspots();
+  </action>
+
+  <action name="setzorder2onstandardspots">
+    if (device.html5,
+      ifnot (device.desktop,
+
+
+        tween(hotspot[spotpoint503].zorder2, %1);
+
+        tween(hotspot[spotpoint504].zorder2, %1);
+
+        tween(hotspot[spotpoint505].zorder2, %1, 0.5, default, copy(urlbckpspotpoint505, hotspot[spotpoint505].url); set(hotspot[spotpoint505].url, ""); copy(hotspot[spotpoint505].url, urlbckpspotpoint505););
+
+        tween(hotspot[spotpoint506].zorder2, %1);
+
+      );
+    );
+  </action>  
+
+</scene>
+
+
+<scene name="pano433"
+       heading="177.4"
+       group="panogroup430"
+       thumburl="%FIRSTXML%/bedroom_433/thumbnail.jpg"
+       backgroundsound=""
+       backgroundsoundloops="0"
+       titleid="pano433_title"
+       descriptionid="pano433_description"
+       multires="false"
+       planar="false"
+       full360="true">
+
+    <autorotate horizon="0.000000" tofov="70.000000" waittime="1" speed="3"/>
+
+    <panoview h="72.450000" v="0.000000" fov="70.000000" hmin="-180" hmax="180" vmin="-90" vmax="90" fovmax="90" />
+    <view fisheye="0"
+          limitview="range"
+          hlookatmin="-180"
+          hlookatmax="180"
+          vlookatmin="-90"
+          vlookatmax="90"
+          maxpixelzoom="1.0"
+          fovmax="90"
+          fov="70.000000"
+          hlookat="72.450000"
+          vlookat="0.000000"/>
+
+    <preview url="%FIRSTXML%/bedroom_433/preview.jpg" type="CUBESTRIP" striporder="FRBLUD"/>
+
+    <image type="CUBE" devices="desktop">
+      <front url="bedroom_433/html5/0.jpg"/>
+      <right url="bedroom_433/html5/1.jpg"/>
+      <back  url="bedroom_433/html5/2.jpg"/>
+      <left  url="bedroom_433/html5/3.jpg"/>
+      <up    url="bedroom_433/html5/4.jpg"/>
+      <down  url="bedroom_433/html5/5.jpg"/>
+    </image>
+
+    <image type="CUBE" devices="html5">
+      <front url="bedroom_433/html5/0.jpg"/>
+      <right url="bedroom_433/html5/1.jpg"/>
+      <back  url="bedroom_433/html5/2.jpg"/>
+      <left  url="bedroom_433/html5/3.jpg"/>
+      <up    url="bedroom_433/html5/4.jpg"/>
+      <down  url="bedroom_433/html5/5.jpg"/>
+    </image>
+
+
+
+
+
+  <hotspot name="spotpoint511"
+           ath="-13.309196" atv="41.504942"
+           visible="true"
+           style="Iconripples"
+           descriptionid=""
+           onclick="onclickspotpoint511"
+           tooltip="spotpoint511_tooltip"
+           />
+  <hotspot name="spotpoint511" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint511" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint511" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint511">looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));
+        mainloadscene(pano431);
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    
+  </action>
+  <hotspot name="spotpoint512"
+           ath="169.118278" atv="-10.022761"
+           visible="true"
+           style="Iconinfosign"
+           descriptionid="spotpoint512_description"
+           onclick="onclickspotpoint512"
+           tooltip="spotpoint512_tooltip"
+           />
+  <hotspot name="spotpoint512" devices="flash" zorder="3"/>
+  <hotspot name="spotpoint512" devices="html5+desktop" zorder="3" zorder2="1"/>
+  <hotspot name="spotpoint512" devices="tablet|mobile" zorder2="1"/>
+  <action name="onclickspotpoint512">openSpotDescription-description(get(descriptionid));
+  </action>
+  <action name="hidepanopointspots">
+    set(hotspot[spotpoint511].visible, false);
+    set(hotspot[spotpoint512].visible, false);
+  </action>
+  <action name="showpanopointspots">
+    set(hotspot[spotpoint511].visible, true);
+    set(hotspot[spotpoint512].visible, true);
+  </action>
+
+
+  <action name="showpanospotsaction">
+    if (tour_displayspots,
+    showpanopointspots();
+    );
+  </action>
+  <action name="hidepanospotsaction">
+    hidepanopointspots();
+  </action>
+
+  <action name="setzorder2onstandardspots">
+    if (device.html5,
+      ifnot (device.desktop,
+
+
+        tween(hotspot[spotpoint511].zorder2, %1, 0.5, default, copy(urlbckpspotpoint511, hotspot[spotpoint511].url); set(hotspot[spotpoint511].url, ""); copy(hotspot[spotpoint511].url, urlbckpspotpoint511););
+
+        tween(hotspot[spotpoint512].zorder2, %1);
 
       );
     );

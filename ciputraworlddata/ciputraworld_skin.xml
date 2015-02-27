@@ -167,9 +167,9 @@ resumeautorotation();
 		<option name="padding" value="25" type="int" />
 		<option name="display_title" value="false" type="bool" />
 		<option name="close_displayed" value="true" type="bool" />
-		<option name="overlay_displayed" value="false" type="bool" />
+		<option name="overlay_displayed" value="true" type="bool" />
 		<option name="overlay_color" value="000000" type="string" />
-		<option name="overlay_alpha" value="0.500007629510948" type="float" />
+		<option name="overlay_alpha" value="0" type="float" />
 		<option name="area_width" value="300" type="int" />
 		<option name="area_height" value="250" type="int" />
 		<option name="area_width_unit" value="pixel" type="string" />
@@ -385,7 +385,7 @@ showPanoDescription-description();
 							</floorplanItem>
 							<floorplanItem 
 								name="fpitempanogroup16" 
-								width="500" 
+								width="539" 
 								height="793" 
 								groupName="panogroup16" 
 								url="floorplan/floorplan-voila_panogroup16.png" 
@@ -405,6 +405,27 @@ showPanoDescription-description();
 										</spot>
 							</floorplanItem>
 							<floorplanItem 
+								name="fpitempanogroup362" 
+								width="623" 
+								height="793" 
+								groupName="panogroup362" 
+								url="floorplan/floorplan-voila-b_panogroup362.png" 
+								title="panogroup362_floor_title"
+								heading="0">
+										<spot name="spotmap578" posX="0.848297" posY="0.764563" heading="-2.55795384873636e-13" desc="spotmap578_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano361" jsClick="spotmap578ActionSpotFloorPlan">
+											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
+										</spot>
+										<spot name="spotmap579" posX="0.597523" posY="0.759709" heading="0" desc="spotmap579_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano363" jsClick="spotmap579ActionSpotFloorPlan">
+											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
+										</spot>
+										<spot name="spotmap580" posX="0.414861" posY="0.541262" heading="49.4" desc="spotmap580_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano365" jsClick="spotmap580ActionSpotFloorPlan">
+											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
+										</spot>
+										<spot name="spotmap581" posX="0.575851" posY="0.393204" heading="0" desc="spotmap581_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano367" jsClick="spotmap581ActionSpotFloorPlan">
+											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
+										</spot>
+							</floorplanItem>
+							<floorplanItem 
 								name="fpitempanogroup10" 
 								width="652" 
 								height="629" 
@@ -419,6 +440,24 @@ showPanoDescription-description();
 											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
 										</spot>
 										<spot name="spotmap267" posX="0.745592" posY="0.409922" heading="172.999999999999" desc="spotmap267_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano13" jsClick="spotmap267ActionSpotFloorPlan">
+											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
+										</spot>
+							</floorplanItem>
+							<floorplanItem 
+								name="fpitempanogroup430" 
+								width="652" 
+								height="674" 
+								groupName="panogroup430" 
+								url="floorplan/floorplan-skyloft2_b_panogroup430.png" 
+								title="panogroup430_floor_title"
+								heading="0">
+										<spot name="spotmap538" posX="0.228643" posY="0.492718" heading="-179" desc="spotmap538_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano429" jsClick="spotmap538ActionSpotFloorPlan">
+											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
+										</spot>
+										<spot name="spotmap539" posX="0.432161" posY="0.718447" heading="-113.8" desc="spotmap539_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano431" jsClick="spotmap539ActionSpotFloorPlan">
+											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
+										</spot>
+										<spot name="spotmap540" posX="0.778894" posY="0.582524" heading="177.4" desc="spotmap540_tooltip" descType="tooltip" groupName="" isScene="true" scene="pano433" jsClick="spotmap540ActionSpotFloorPlan">
 											<icon url="spots/pointer enter_user_defaultmap0.gif" iconWidth="30" iconHeight="30" iconAnchor="center" />
 										</spot>
 							</floorplanItem>
@@ -458,6 +497,31 @@ showPanoDescription-description();
       lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
     </action>
 					
+						<action name="spotmap578ActionSpotFloorPlan">
+          if (xml.scene != pano361,
+            mainloadscene(pano361);
+          );
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    </action>
+						<action name="spotmap579ActionSpotFloorPlan">
+          if (xml.scene != pano363,
+            mainloadscene(pano363);
+          );
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    </action>
+						<action name="spotmap580ActionSpotFloorPlan">
+          if (xml.scene != pano365,
+            mainloadscene(pano365);
+          );
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    </action>
+						<action name="spotmap581ActionSpotFloorPlan">
+          if (xml.scene != pano367,
+            mainloadscene(pano367);
+          );
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    </action>
+					
 						<action name="spotmap265ActionSpotFloorPlan">
           if (xml.scene != pano9,
             mainloadscene(pano9);
@@ -473,6 +537,25 @@ showPanoDescription-description();
 						<action name="spotmap267ActionSpotFloorPlan">
           if (xml.scene != pano13,
             mainloadscene(pano13);
+          );
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    </action>
+					
+						<action name="spotmap538ActionSpotFloorPlan">
+          if (xml.scene != pano429,
+            mainloadscene(pano429);
+          );
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    </action>
+						<action name="spotmap539ActionSpotFloorPlan">
+          if (xml.scene != pano431,
+            mainloadscene(pano431);
+          );
+      lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+    </action>
+						<action name="spotmap540ActionSpotFloorPlan">
+          if (xml.scene != pano433,
+            mainloadscene(pano433);
           );
       lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
     </action>
